@@ -6,3 +6,4 @@
 *.hi
 lua_modules/
 .ghc.environment.*
+.stack-work/

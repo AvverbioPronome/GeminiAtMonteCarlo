@@ -1,0 +1,33 @@
+name:                gemini-montecarlo
+version:             0.1.0.0
+dependencies:
+  - base
+  - parallel
+  - random
+
+executables:
+  # 1. The Optimized Pure Version
+  montecarlo_fast:
+    main:                montecarlo_fast.hs
+    ghc-options:         -O2 -threaded -rtsopts
+
+  # 2. The Parallel Version (CPS)
+  montecarlo_cps:
+    main:                montecarlo_cps.hs
+    ghc-options:         -O2 -threaded -rtsopts
+
+  # 3. The Recursive Version
+  montecarlo2:
+    main:                montecarlo2.hs
+    ghc-options:         -O2
+
+  # 4. The Naive Version
+  montecarlo:
+    main:                montecarlo.hs
+    ghc-options:         -O2
+
+  # 5. The FFI Version (Haskell + C)
+  montecarlo_ffi:
+    main:                montecarlo_ffi.hs
+    c-sources:           kernel.c
+    ghc-options:         -O2 -threaded -rtsopts

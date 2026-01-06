@@ -1,0 +1,66 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.37.0.
+--
+-- see: https://github.com/sol/hpack
+
+name:           gemini-montecarlo
+version:        0.1.0.0
+build-type:     Simple
+
+executable montecarlo
+  main-is: montecarlo.hs
+  other-modules:
+      Paths_gemini_montecarlo
+  ghc-options: -O2
+  build-depends:
+      base
+    , parallel
+    , random
+  default-language: Haskell2010
+
+executable montecarlo2
+  main-is: montecarlo2.hs
+  other-modules:
+      Paths_gemini_montecarlo
+  ghc-options: -O2
+  build-depends:
+      base
+    , parallel
+    , random
+  default-language: Haskell2010
+
+executable montecarlo_cps
+  main-is: montecarlo_cps.hs
+  other-modules:
+      Paths_gemini_montecarlo
+  ghc-options: -O2 -threaded -rtsopts
+  build-depends:
+      base
+    , parallel
+    , random
+  default-language: Haskell2010
+
+executable montecarlo_fast
+  main-is: montecarlo_fast.hs
+  other-modules:
+      Paths_gemini_montecarlo
+  ghc-options: -O2 -threaded -rtsopts
+  build-depends:
+      base
+    , parallel
+    , random
+  default-language: Haskell2010
+
+executable montecarlo_ffi
+  main-is: montecarlo_ffi.hs
+  other-modules:
+      Paths_gemini_montecarlo
+  ghc-options: -O2 -threaded -rtsopts
+  c-sources:
+      kernel.c
+  build-depends:
+      base
+    , parallel
+    , random
+  default-language: Haskell2010
