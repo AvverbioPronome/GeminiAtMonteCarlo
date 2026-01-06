@@ -3,14 +3,15 @@ HFLAGS  = -O2 -Wall -threaded -rtsopts
 CC = gcc
 CFLAGS = -O3 -march=native -fopenmp -fopenmp-simd -Wall
 
-.PHONY: clean
+.PHONY: all
+all: deps-haskell deps-lua
 
 # The Magic Pattern Rule
 # "To build any file with no extension (%), look for a .hs file (%: %.hs)"
-%: %.hs
+%: %.hs deps-haskell
 	$(HC) $(HFLAGS) -o $@ $<
 
-montecarlo_ffi: kernel.o montecarlo_ffi.hs
+montecarlo_ffi: kernel.o deps-haskell montecarlo_ffi.hs 
 	$(HC) $(HFLAGS) -o $@ $^
 
 %.o: %.c
