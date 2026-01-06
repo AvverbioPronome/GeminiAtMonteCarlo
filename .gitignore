@@ -4,3 +4,5 @@
 ![Mm]akefile
 *.o
 *.hi
+lua_modules/
+.ghc.environment.*

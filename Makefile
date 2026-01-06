@@ -20,4 +20,11 @@ parallel: parallel.c
 	$(CC) $(CFLAGS) $< -o $@
 
 clean:
-	rm -f *.o *.hi montecarlo_hs montecarlo
+	git clean -Xdf
+
+deps-haskell:
+	cabal install --lib random --package-env .
+	cabal install --lib parallel --package-env .
+
+deps-lua:
+	luarocks install --tree lua_modules ./fun-scm-1.rockspec
