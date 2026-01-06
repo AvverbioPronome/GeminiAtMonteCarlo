@@ -4,7 +4,7 @@ CC = gcc
 CFLAGS = -O3 -march=native -fopenmp -fopenmp-simd -Wall
 
 .PHONY: all clean deps-lua
-all: deps-haskell deps-lua
+all: deps-lua
 
 # The Magic Pattern Rule
 # "To build any file with no extension (%), look for a .hs file (%: %.hs)"
