@@ -12,10 +12,10 @@ all: deps-lua
 	stack install :$@ --local-bin-path .
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -fPIC -shared -c $< -o $@
 
 %: %.c
-	$(CC) $(CFLAGS) $< -o $@
+	$(CC) $(CFLAGS) -DBUILD_EXE $< -o $@
 
 clean:
 	git clean -Xdf

@@ -6,7 +6,7 @@
 
 // Forward declaration of our kernel
 int64_t monte_carlo_parallel(int64_t total_n);
-
+#ifdef BUILD_EXE
 int main(int argc, char *argv[]) {
     if (argc < 2) {
         printf("Usage: %s <number_of_points>\n", argv[0]);
@@ -31,6 +31,7 @@ int main(int argc, char *argv[]) {
 
     return 0;
 }
+#endif
 
 int64_t monte_carlo_parallel(int64_t total_n) {
     int64_t total_hits = 0;

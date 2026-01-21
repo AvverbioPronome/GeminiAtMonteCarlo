@@ -5,7 +5,7 @@ import System.Environment (getArgs)
 import Data.Int (Int64)
 
 -- Import the C function
-foreign import ccall "monte_carlo_kernel" 
+foreign import ccall safe "monte_carlo_parallel" 
     c_kernel :: Int64 -> CUInt -> Int64
 
 main :: IO ()
@@ -15,9 +15,9 @@ main = do
     let n = case args of
             (x:_) -> read x :: Int
             []    -> 100000 :: Int
-    let numCaps = 8 
+    let numCaps = 12 
     let chunkSize = fromIntegral (n `div` numCaps)
-        seeds = [1..8] :: [CUInt]
+        seeds = [1..12] :: [CUInt]
 
     -- Haskell handles the threads, C handles the SIMD saturation
     let partials = parMap rseq (\s -> c_kernel chunkSize s) seeds
