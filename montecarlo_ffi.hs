@@ -5,7 +5,7 @@ import System.Environment (getArgs)
 import Data.Int (Int64)
 
 -- Import the C function
-foreign import ccall safe "monte_carlo_parallel" 
+foreign import ccall safe "monte_carlo_kernel" 
     c_kernel :: Int64 -> CUInt -> Int64
 
 main :: IO ()

@@ -29,7 +29,7 @@ executables:
   # 5. The FFI Version (Haskell + C)
   montecarlo_ffi:
     main:                montecarlo_ffi.hs
-    c-sources:           [kernel.c, parallel.c]
+    c-sources:           [parallel.c]
     ghc-options:         -O2 -threaded -rtsopts
     cc-options: -O3 -march=native -fopenmp -fPIC
     ld-options: -fopenmp

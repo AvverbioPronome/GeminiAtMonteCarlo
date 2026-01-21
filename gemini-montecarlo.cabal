@@ -59,7 +59,6 @@ executable montecarlo_ffi
   ghc-options: -O2 -threaded -rtsopts
   cc-options: -O3 -march=native -fopenmp -fPIC
   c-sources:
-      kernel.c
       parallel.c
   ld-options: -fopenmp
   build-depends:
